@@ -13,6 +13,7 @@ and open the template in the editor.
         <?php
         echo "test de vincent";
         echo "moi pas bien comprendre";
+        echo "salut vincent";
         ?>
     </body>
 </html>
