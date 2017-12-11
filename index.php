@@ -15,6 +15,7 @@ and open the template in the editor.
         echo "moi pas bien comprendre";
         echo "salut vincent";
         echo "test via atom";
+        echo "test via atom 2";
         ?>
     </body>
 </html>
