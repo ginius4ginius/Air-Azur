@@ -16,6 +16,7 @@ and open the template in the editor.
         echo "salut vincent";
         echo "test via atom";
         echo "test via atom 2";
+        echo "encoreun dernier test avant d'aller en cour";
         ?>
     </body>
 </html>
