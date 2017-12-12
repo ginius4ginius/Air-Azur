@@ -11,13 +11,14 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        echo "test de vincent";
-        echo "moi pas bien comprendre";
-        echo "salut vincent";
-        echo "test via atom";
-        echo "test via atom 2";
-        echo "encoreun dernier test avant d'aller en cour";
-        echo 'test par ens2';
+        echo "test de vincent<br>";
+        echo "moi pas bien comprendre<br>";
+        echo "salut vincent<br>";
+        echo "test via atom<br>";
+        echo "test via atom 2<br>";
+        echo "encoreun dernier test avant d'aller en cour<br>";
+        echo 'test par ens2<br>';
+
         ?>
     </body>
 </html>
