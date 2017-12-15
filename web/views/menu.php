@@ -1,6 +1,8 @@
 
-<?php echo "je suis le menu";?>
-
-<div id="label">
-<img src="img/avion.jpg" alt="Photo d'un avion'" />
+  <div class="navbar navbar-default">
+  <ul class="nav navbar-nav">
+    <li class="active"> <a href="#">Accueil</a> </li>
+    <li> <a href="#">Liste des vols</a> </li>
+    <li> <a href="#">Réservation</a> </li>
+  </ul>
 </div>
