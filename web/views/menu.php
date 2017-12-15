@@ -1,6 +1,6 @@
 <html>
 <?php include_once("head.php");
-echo "je suis le vue_menu";
+echo "je suis le menu";
 ?>
 <body>
 
@@ -11,5 +11,5 @@ echo "je suis le vue_menu";
 <script src="http://code.jquery.com/jquery.js"></script>
 <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
-<?php include_once("foot.php");
+<?php include_once("foot.php"); ?>
 </html>
