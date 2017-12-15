@@ -1,21 +1,21 @@
 <?php
+  // --- router
+  // --- routes to controller depending on action
+  //
   if(isset($_REQUEST['action'])) {
     switch($_REQUEST['action']) {
       case 'reservation':
-        header("Location: views/reservation.php");
-        //
-        echo "Hello reservation";
+        header("Location: controller/reservation.php");
         break;
       //
       case 'catalog':
-        //header("Location: views/reservation.php");
-        echo "Hello catalog";
+        header("Location: controller/catalog.php");
         break;
-      //
+        //
     }
 
   }
   //
-  echo "Hello word!!!!";
-
+  header("Location: views/home.php");
+  //
  ?>
