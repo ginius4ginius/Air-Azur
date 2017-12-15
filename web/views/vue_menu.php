@@ -1,9 +1,11 @@
 <html>
-<?php include("head.php"); ?>
+<?php include("head.php");
+echo "je suis le vue_menu";
+?>
 <body>
 
 <div id="label">
-
+<img src="img/avion.jpg" alt="Photo d'un avion'" />
 </div>
 
 <script src="http://code.jquery.com/jquery.js"></script>
