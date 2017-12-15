@@ -23,7 +23,7 @@ class DataLink {
     //
     return $oPdo;
   }
-  // -------------- single connection
+  // ---------------------------------------------------- single connection
   function getConnection() {
     if (!$this->oConnection)
       $this->oConnection = $this->dbConnect();
