@@ -1,7 +1,7 @@
 <html>
-<?php require_once('head.php') ?>
+<?php include_once('views/head.php') ?>
  <body>
-   <?php require_once('header.php') ?>
+   <?php include_once('views/header.php') ?>
 
      <div id="menu" class="row">
          <div class="col-lg-12">
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
- <?php require_once('foot.php') ?>
+ <?php include_once('views/foot.php') ?>
  <script src="http://code.jquery.com/jquery.js"></script>
  <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
