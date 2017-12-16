@@ -1,6 +1,7 @@
 <header>
   <div class="top">
-    <img src="" alt="">
+    <img src="../img/avion.jpg" alt="logo">
+    <span>Air-Azur</span>
   </div>
   <div class="menu">
     <?php include_once('menu.php')?>
