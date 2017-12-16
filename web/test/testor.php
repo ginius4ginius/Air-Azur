@@ -8,5 +8,5 @@ $aRes = $oDl->getResultSet($sQuery, [':nationalite' => 'Russe']);
 //
 var_dump($aRes);
 //
-
+// here is another
  ?>
