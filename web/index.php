@@ -1,5 +1,7 @@
+<html>
 <?php require_once('head.php') ?>
  <body>
+   <?php require_once('header.php') ?>
 
      <div id="menu" class="row">
          <div class="col-lg-12">
@@ -33,7 +35,8 @@
         </div>
       </div>
     </div>
+ <?php require_once('foot.php') ?>
  <script src="http://code.jquery.com/jquery.js"></script>
  <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
- </body>
- <?php require_once('foot.php') ?>
+  </body>
+</html>
