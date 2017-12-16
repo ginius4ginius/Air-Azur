@@ -1,4 +1,4 @@
-<?php require_once(head.php) ?>
+<?php require_once('head.php') ?>
  <body>
    <?php
   // --- router
@@ -24,4 +24,4 @@
  <script src="http://code.jquery.com/jquery.js"></script>
  <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
  </body>
- <?php require_once(foot.php) ?>
+ <?php require_once('foot.php') ?>
