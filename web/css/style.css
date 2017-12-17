@@ -2,10 +2,17 @@
   position: relative;
   min-height: 50px;
   margin-bottom: 20px;
+  margin-left: 250px;
+  margin-right: 260px;
   border: 1px solid transparent;
 }
 
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: white;
+  border-color: #C71585;
+}
+
+div.top{
+
+  margin-left: 250px;
 }
