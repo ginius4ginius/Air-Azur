@@ -46,5 +46,21 @@ class DataLink {
     //
     return $aResultSet;
   }
+  //
+  //
+  function query($sQuery, $aParams=array()) {
+    $aResultSet = array();
+    //
+    if ($oCnx = $this->getConnection()) {
+      $oStm = $oCnx->prepare($sQuery);
+      //
+      if (!is_array($aParams))
+        $aParams = [];
+      //
+      return $oStm->execute($aParams);
+    }
+    //
+    return false;
+  }
 }
  ?>
