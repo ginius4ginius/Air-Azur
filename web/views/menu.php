@@ -6,7 +6,7 @@
               <li> <a href="?action=catalog"><span class="glyphicon glyphicon-plane"></span>    Liste des vols</a> </li>
               <li> <a href="?action=reservation"><span class="glyphicon glyphicon-edit"></span>   Réservation</a> </li>
           </ul>
-      <button type="button" class="btn btn-default navbar-btn">Deconnexion</button>
+      <button type="button" class="btn btn-default navbar-btn pull-right">Deconnexion</button>
       </nav>
   </div>
 </div>
