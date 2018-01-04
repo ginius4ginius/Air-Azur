@@ -11,4 +11,10 @@
     </div>
     <?php include_once('foot.php')?>
   </body>
+  <script>
+    $( document ).ready(function() {
+      console.log( "home and ready!" );
+      $( "#menu_home" ).addClass('active');
+    });
+  </script>  
 </html>
