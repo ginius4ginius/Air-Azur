@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <html>
 <?php include_once('views/head.php') ?>
  <body>
@@ -27,14 +28,36 @@
         //
     }
 
+=======
+<?php
+//
+$sLocation = "views/home.php"; //default location route
+//
+//--------------------------------------- route
+if(isset($_REQUEST['action'])) {
+  switch($_REQUEST['action']) {
+    case 'reservation':
+      $sLocation = "controller/reservation.php";
+      break;
+    //
+    case 'catalog': 
+      $sLocation = "controller/catalog.php";
+      break;
+    //
+>>>>>>> 445552315796288620fefd25293870c7749fabd3
   }
-  //
-  header("Location: views/home.php");
-  //
+}
+//----------- go to location
+header("Location: $sLocation");
+//exit();
+//
  ?>
+<<<<<<< HEAD
 
  <?php include_once('views/foot.php') ?>
  <script src="http://code.jquery.com/jquery.js"></script>
  <script src="css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   </body>
 </html>
+=======
+>>>>>>> 445552315796288620fefd25293870c7749fabd3

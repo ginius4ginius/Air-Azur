@@ -4,10 +4,17 @@
     <div id="container">
       <?php include_once('header.php')?>
       <div>
-        <h1>Bienvenue</h1>
-        <p>lorum ipsem...</p>
+        <div id="accueil">
+          Bienvenue sur l'intranet d'AIR AZUR
+        </div>
       </div>
     </div>
     <?php include_once('foot.php')?>
   </body>
+  <script>
+    $( document ).ready(function() {
+      console.log( "home and ready!" );
+      $( "#menu_home" ).addClass('active');
+    });
+  </script>  
 </html>
