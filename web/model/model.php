@@ -1,6 +1,30 @@
 <?php
   require_once('DataLink.php');
   //
+function addReservation($aParams) {
+
+}
+
+function deleteReservation($aParams) {
+  
+}
+
+function getClients() {
+  $oDl = new DataLink();
+  $sQuery = "select * from client";
+  //
+  return $oDl->getResultSet($sQuery);    
+}
+
+function getVols() {
+  $oDl = new DataLink();
+  $sQuery = "select * from vol";
+  //
+  return $oDl->getResultSet($sQuery);    
+}
+
+
+
   function getReservations($aFilters) {
     //----------------------
     $aRes = [

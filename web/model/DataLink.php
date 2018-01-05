@@ -1,7 +1,7 @@
 <?php
 class DataLink {
   //--------------------------------------------------------------- members
-  public $aDbConnector = array('dsn' => 'mysql:host=localhost;dbname=airazur',
+  public $aDbConnector = array('dsn' => 'mysql:host=localhost;dbname=air_azur',
     'user' => 'root',
     'password' => '');
   //
@@ -40,8 +40,10 @@ class DataLink {
       if (!is_array($aParams))
         $aParams = [];
       //
-      if($oStm->execute($aParams))
+      if($oStm->execute($aParams)) {
         $aResultSet = $oStm->fetchall(PDO::FETCH_ASSOC);
+      }
+        
     }
     //
     return $aResultSet;
