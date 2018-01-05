@@ -1,0 +1,31 @@
+<?php
+include_once('../model/model.php');
+//-------------------------------
+echo '------------ test getResLastNum<br>';
+$aRes = getResLastNum(1);
+var_dump($aRes);
+//
+/*
+//-------------------------------
+echo '------------ test addReservation<br>';
+$aParams = [':cln_id' => '3', 
+            ':date_dep' => '2018-01-22',
+            ':vlg_num' => 'AF410',
+            ':nbr_places_res' => 1];
+//
+$aRes = addReservation($aParams);
+var_dump($aRes);
+*/
+//-------------------------------
+echo '------------ test deleteReservation<br>';
+$aParams = [':gnc_id' => '1', ':rsr_num' => '4']; 
+//
+$aRes = deleteReservation($aParams);
+var_dump($aRes);
+//-------------------------------
+echo '------------ test getReservations<br>';
+//
+$aRes = getReservations();
+var_dump($aRes);
+
+?>

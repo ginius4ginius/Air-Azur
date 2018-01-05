@@ -37,6 +37,7 @@ class DataLink {
     if ($oCnx = $this->getConnection()) {
       $oStm = $oCnx->prepare($sQuery);
       //
+      //var_dump($oStm);
       if (!is_array($aParams))
         $aParams = [];
       //
@@ -51,13 +52,11 @@ class DataLink {
   //
   //
   function query($sQuery, $aParams=array()) {
-    $aResultSet = array();
-    //
     if ($oCnx = $this->getConnection()) {
       $oStm = $oCnx->prepare($sQuery);
       //
       if (!is_array($aParams))
-        $aParams = [];
+        $aParams = [];  
       //
       return $oStm->execute($aParams);
     }
