@@ -1,7 +1,7 @@
 <?php
 class DataLink {
   //--------------------------------------------------------------- members
-  public $aDbConnector = array('dsn' => 'mysql:host=localhost;dbname=biblio',
+  public $aDbConnector = array('dsn' => 'mysql:host=localhost;dbname=airazur',
     'user' => 'root',
     'password' => '');
   //

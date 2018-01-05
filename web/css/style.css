@@ -19,3 +19,15 @@ position: center;
 .pied{
   text-align: center;
 }
+
+#reservation_list > table {
+  border: 1px solid gray;
+  border-collapse: collapse;  
+}
+
+#reservation_list > table td, #reservation_list > table th{
+  border: 1px solid gray;
+  border-collapse: collapse;
+  padding: 2px 3px;
+  text-align: center;   
+}
