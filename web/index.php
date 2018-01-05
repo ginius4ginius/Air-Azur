@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <html>
 <?php include_once('views/head.php') ?>
  <body>
@@ -22,6 +23,8 @@
   }
 /*
 =======
+=======
+>>>>>>> e0593f07946469e17217fb10c8683907bfce599b
 <?php
 //
 */
@@ -39,9 +42,12 @@ if(isset($_REQUEST['action'])) {
       $sLocation = "controller/catalog.php";
       break;
     //
+<<<<<<< HEAD
     /*
 >>>>>>> 445552315796288620fefd25293870c7749fabd3
 */
+=======
+>>>>>>> e0593f07946469e17217fb10c8683907bfce599b
   }
 }
 //----------- go to location
@@ -49,6 +55,7 @@ header("Location: $sLocation");
 //exit();
 //
  ?>
+<<<<<<< HEAD
  <!--
 <<<<<<< HEAD
 -->
@@ -61,3 +68,5 @@ header("Location: $sLocation");
 =======
 >>>>>>> 445552315796288620fefd25293870c7749fabd3
 -->
+=======
+>>>>>>> e0593f07946469e17217fb10c8683907bfce599b
