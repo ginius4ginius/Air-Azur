@@ -9,7 +9,7 @@ function getVolTable(){
     $aAction = array();
     $aAction[] = '<button type="button"
                     class="btn btn-default btn-sm" 
-                    onclick="editRes(\''.$value['Vol'].'\', \''.$value['date_dep'].'\')">
+                    onclick="showResForm(\''.$value['Vol'].'\', \''.$value['date_dep'].'\')">
     <span class="glyphicon glyphicon-plus"></span> Réserver
   </button>&nbsp;';
     //

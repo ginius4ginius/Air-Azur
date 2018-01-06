@@ -24,6 +24,12 @@ $aParams = [':gnc_id' => '1', ':rsr_num' => '4'];
 $aRes = deleteReservation($aParams);
 var_dump($aRes);
 */
+echo '------------ test getVolRes<br>';
+$aParams = [':vlg_num' => 'AF150', ':date_dep' => '2018-01-17']; 
+//
+$aRes = getVolRes($aParams);
+var_dump($aRes);
+
 echo '------------ test getReservation<br>';
 $aParams = [':gnc_id' => '1', ':rsr_num' => '1']; 
 //

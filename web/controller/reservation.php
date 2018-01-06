@@ -48,6 +48,14 @@ if(isset($_REQUEST['action'])) {
       echo json_encode($aRes);
       exit();
       break;
+    //
+    case 'getFlyRes':
+      $aRes =getVolRes([':vlg_num' => $_REQUEST['vlg_num'], 
+        ':date_dep' => $_REQUEST['date_dep']]);
+      //
+      echo json_encode($aRes);
+      exit();
+      break;      
       //
     case 'update':
       $aRes = updateReservation([':gnc_id' => $_REQUEST['gnc_id'], 
@@ -56,7 +64,7 @@ if(isset($_REQUEST['action'])) {
       //
       echo getReservationTable();
       exit();
-      break;
+      break;      
       //
     case 'delete':
       $aRes = deleteReservation([':gnc_id' => $_REQUEST['gnc_id'], 
@@ -66,6 +74,22 @@ if(isset($_REQUEST['action'])) {
       exit();
       break;
       //
+    case 'add':
+      $aParams = [':cln_id' => $_REQUEST['cln_id'], 
+      ':date_dep' => $_REQUEST['date_dep'],
+      ':vlg_num' => $_REQUEST['vlg_num'],
+      ':nbr_places_res' => $_REQUEST['nbr_places_res']];
+      //
+      $aRes = addReservation($aParams);
+      //
+      //echo getReservationTable();
+      exit();
+      break;
+      //
+    case 'getClients':
+      echo json_encode(getClients(), true);
+      exit();
+      break;
   }
   //
 

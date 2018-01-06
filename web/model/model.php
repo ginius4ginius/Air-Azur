@@ -19,7 +19,7 @@ function deleteClient($aParams) {
 
 function getClients($aParams=array()) {
   $oDl = new DataLink();
-  $sQuery = "select * from client";
+  $sQuery = "select * from client order by nom, prenom";
   //
   return $oDl->getResultSet($sQuery);
 }
@@ -47,6 +47,23 @@ function getVols() {
           order by date_dep";
   //
   return $oDl->getResultSet($sQuery);
+}
+//
+function getVolRes($aParams) {
+  $oDl = new DataLink();
+  $sQuery = "SELECT v.vlg_num as vol, prix,
+    concat(ad.arp_nom, ': ',v.date_dep,' ',g.heure_dep) as 'depart',
+    concat(aa.arp_nom, ': ', v.date_dep,' ',g.heure_dep) as 'arrivee'
+    FROM vol v join vol_g g on v.vlg_num = g.vlg_num
+    join aeroport ad on ad.code=g.code_arp_dep
+    join aeroport aa on aa.code=g.code_arp_arr
+    where v.vlg_num = :vlg_num and v.date_dep = :date_dep";
+  //
+  $a = $oDl->getResultSet($sQuery, $aParams);
+  if( is_array($a) && isset($a[0]) && is_array($a[0]))
+    return $a[0];
+  //
+  return false;
 }
 //
 //------------------------------------------------- reservations

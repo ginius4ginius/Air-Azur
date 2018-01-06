@@ -20,17 +20,20 @@
             <h4 class="modal-title" id="myModalLabel">Changer la réservation</h4>
           </div>
           <div class="modal-body">
-            <div> Client: <span id="client"></span> </div>
+            <div> Client : <span id="client"></span> </div>
+            <br>  
             <div> 
               Vol: <span id="vol"></span> <br>
-              Départ: <span id="depart"></span> <br>
-              Arrivée: <span id="arrivee"></span> <br>
+              Départ : <span id="depart"></span> <br>
+              Arrivée : <span id="arrivee"></span> <br>
             </div>
-
-            <div> Nombre de places <br>
+            <br>
+            <div> Nombre de places : 
               <input type="number" id="nbPlaces" size="3" onchange="updatePrix(this.value)"/>
             </div>
-            <div> Prix: <span id="prix_calc"></span></div>
+            <br>
+            <div> Prix HT : <span id="prix_calc"></span> &euro;</div>
+
             <input type="hidden" id="prix" />
             <input type="hidden" id="gnc_id" />
             <input type="hidden" id="rsr_num" />
