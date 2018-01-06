@@ -10,11 +10,11 @@ if(isset($_REQUEST['action'])) {
       break;
     //
     case 'catalog':
-      $sLocation = "controller/catalog.php";
+      $sLocation = "views/catalog.php";
       break;
     //
   }
-}  
+}
 //----------- go to location
 header("Location: $sLocation");
 //exit();
