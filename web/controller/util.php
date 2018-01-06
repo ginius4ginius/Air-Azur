@@ -7,7 +7,7 @@ function mkHtmlTable($aTable) {
       if(is_array($v)) {
         if($k == 0) {
           $aLabels = array_keys($v);
-          $sHtml .= '<tr><td>'.implode('</td><td>', $aLabels).'</td></tr>';
+          $sHtml .= '<tr><th>'.implode('</th><th>', $aLabels).'</th></tr>';
         }
         //
         $sHtml .= '<tr><td>'.implode('</td><td>', $v).'</td></tr>';
@@ -16,7 +16,7 @@ function mkHtmlTable($aTable) {
   }
   //
   if(!empty($sHtml))
-    $sHtml = "<table border=2 width='75%''> $sHtml </table>";
+    $sHtml = "<table class=\"tpListTable\" > $sHtml </table>";
   //
   return $sHtml;
 }
