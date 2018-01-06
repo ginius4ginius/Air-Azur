@@ -4,15 +4,16 @@ include_once('../controller/util.php');
 
 function getVolTable(){
   $aRes = getVols();
-
+  //var_dump($aRes);
   foreach ($aRes as $key => $value) {
     $aAction = array();
     $aAction[] = '<button type="button"
-                        class="btn btn-default btn-sm" onclick="editRes('.$value['vlg_num'].')">
-    <span class="glyphicon glyphicon-file"></span>
+                    class="btn btn-default btn-sm" 
+                    onclick="editRes(\''.$value['Vol'].'\', \''.$value['date_dep'].'\')">
+    <span class="glyphicon glyphicon-plus"></span> Réserver
   </button>&nbsp;';
     //
-    unset($aRes[$key]['vlg_num']);
+    unset($aRes[$key]['date_dep']);
     //
     $aRes[$key]['&nbsp;'] = implode('&nbsp;',$aAction);
 

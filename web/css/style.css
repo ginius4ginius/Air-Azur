@@ -31,3 +31,16 @@ position: center;
   padding: 2px 3px;
   text-align: center;
 }
+
+
+#fly_list > table {
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+
+#fly_list > table td, #fly_list > table th{
+  border: 1px solid gray;
+  border-collapse: collapse;
+  padding: 2px 3px;
+  text-align: center;
+}

@@ -34,13 +34,17 @@ function getVolGs() {
 
 function getVols() {
   $oDl = new DataLink();
-  $sQuery = "SELECT vol.vlg_num, date_dep as Date_départ,
-   date_arr as Date_arrivée,
-    heure_dep as Heure_départ,
-     heure_arr as Heure_arrivée,
+  $sQuery = "SELECT vol.vlg_num as Vol, date_dep, date_dep as 'Date_départ',
+   date_arr as 'Date_arrivée',
+    heure_dep as 'Heure_départ',
+     heure_arr as 'Heure_arrivée',
       nbr_places as Places,
        prix,
-        (select arp_nom from aeroport where code = 1 ) as Aéroport_départ, arp_nom as Aéroport_arrivée FROM `vol` join vol_g on vol.vlg_num = vol_g.vlg_num join aeroport on vol_g.code_arp_arr = aeroport.code";
+        (select arp_nom from aeroport where code = 1 ) as 'Aéroport_départ', 
+          arp_nom as 'Aéroport_arrivée' FROM `vol` 
+          join vol_g on vol.vlg_num = vol_g.vlg_num 
+          join aeroport on vol_g.code_arp_arr = aeroport.code
+          order by date_dep";
   //
   return $oDl->getResultSet($sQuery);
 }
