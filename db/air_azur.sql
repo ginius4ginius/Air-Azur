@@ -25,6 +25,7 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `aeroport`
 --
+drop database air_azur; 
 CREATE DATABASE air_azur;
 
 use air_azur;
@@ -41,7 +42,7 @@ CREATE TABLE `aeroport` (
 --
 
 INSERT INTO `aeroport` (`code`, `libelle`, `pays`, `arp_nom`) VALUES
-(1, 'CDG', 'France', 'Roissy-Charlres-de-Gaulle'),
+(1, 'CDG', 'France', 'Roissy-CDG'),
 (2, 'MLE', 'Maldives', 'Malé'),
 (3, 'JFK', 'Etats-Unis', 'John-F-Kennedy'),
 (4, 'LCY', 'Royaume-Uni', 'Londres-City');
@@ -81,6 +82,11 @@ CREATE TABLE `client` (
   `adr_ville` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `client` (`cln_id`, `nom`, `prenom`, `adr_rue`, `adr_cp`, `adr_ville`) VALUES
+(1, 'Zor', 'Dino', 'Rue des Lézards', 75014, 'Paris'),
+(3, 'Solete', 'Bob', 'Rue des Chats', 75019, 'Paris'),
+(4, 'Piazza', 'Roberto', 'Rue des Mouettes', 76600, 'Le Havre');
+
 -- --------------------------------------------------------
 
 --
@@ -97,6 +103,9 @@ CREATE TABLE `reservation` (
   `date_dep` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `reservation` (`rsr_num`, `gnc_id`, `nbr_places_res`, `date_reservation`, `cln_id`, `vlg_num`, `date_dep`) VALUES
+(1, 1, 2, '2018-01-06', 1, 'AF660', '2018-01-16'),
+(2, 1, 1, '2018-01-06', 3, 'AF150', '2018-01-17');
 -- --------------------------------------------------------
 
 --
