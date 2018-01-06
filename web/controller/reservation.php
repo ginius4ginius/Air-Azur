@@ -11,15 +11,16 @@ function getReservationTable($aRequest=array()) {
   //
   //--------------------------- add buttons
   foreach($result as $k=>$v) {
-    $sAction[] = '<button type="button" 
+    $aAction = array();
+    $aAction[] = '<button type="button" 
                         class="btn btn-default btn-sm" onclick="editRes('.$v['gnc_id'].', '.$v['rsr_num'].')">
     <span class="glyphicon glyphicon-pencil"></span>  
   </button>&nbsp;';
-    $sAction[] '<button type="button" 
+    $aAction[] = '<button type="button" 
                          class="btn btn-default btn-sm" onclick="deleteRes('.$v['gnc_id'].', '.$v['rsr_num'].')" >
     <span class="glyphicon glyphicon-trash"></span>  
   </button>&nbsp;';
-    $sAction[] '<button type="button" 
+    $aAction[] = '<button type="button" 
                          class="btn btn-default btn-sm" onclick="getPdf('.$v['gnc_id'].', '.$v['rsr_num'].')">
     <span class="glyphicon glyphicon-file"></span>  
   </button>&nbsp;';
@@ -40,6 +41,23 @@ if(isset($_REQUEST['action'])) {
       exit();
       break;
     //
+    case 'getFly':
+      $aRes =getReservation([':gnc_id' => $_REQUEST['gnc_id'], 
+        ':rsr_num' => $_REQUEST['rsr_num']]);
+      //
+      echo json_encode($aRes);
+      exit();
+      break;
+      //
+    case 'update':
+      $aRes = updateReservation([':gnc_id' => $_REQUEST['gnc_id'], 
+        ':rsr_num' => $_REQUEST['rsr_num'], 
+        ':nbr_places_res' => $_REQUEST['nbr_places_res']]);
+      //
+      echo getReservationTable();
+      exit();
+      break;
+      //
     case 'delete':
       $aRes = deleteReservation([':gnc_id' => $_REQUEST['gnc_id'], 
         ':rsr_num' => $_REQUEST['rsr_num']]);

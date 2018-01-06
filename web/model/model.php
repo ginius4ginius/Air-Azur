@@ -73,39 +73,48 @@ function deleteReservation($aParams) {
   //  
   return $oDl->query($sQuery, $aParams);  
 }
+//
+function updateReservation($aParams) {
+  $oDl = new DataLink();
+  $sQuery = "update reservation set nbr_places_res = :nbr_places_res, date_reservation=curdate()
+    where gnc_id = :gnc_id and rsr_num = :rsr_num";
+  //  
+  return $oDl->query($sQuery, $aParams);  
+}
+//
+function getReservations($aFilters=array()) {
+  $oDl = new DataLink();
+  $sQuery = "SELECT gnc_id, rsr_num, nom as Nom, prenom as 'Prénom', 
+    v.vlg_num as Vol, concat(ad.arp_nom, ': ',v.date_dep,' ',g.heure_dep) as 'Départ',
+    concat(aa.arp_nom, ': ', v.date_dep,' ',g.heure_dep) as 'Arrivée',
+    nbr_places_res as 'Places', prix * nbr_places_res as Prix, date_reservation as 'Date_réservation'
+    FROM reservation r join client c on r.cln_id = c.cln_id
+    join vol v on v.date_dep = r.date_dep and v.vlg_num = r.vlg_num
+    join vol_g g on v.vlg_num = g.vlg_num
+    join aeroport ad on ad.code=g.code_arp_dep
+    join aeroport aa on aa.code=g.code_arp_arr";
+    //
+  return $oDl->getResultSet($sQuery);    
+}
 
-  function getReservations($aFilters=array()) {
-    $oDl = new DataLink();
-    $sQuery = "SELECT gnc_id, rsr_num, nom as Nom, prenom as 'Prénom', 
-v.vlg_num as Vol, concat(ad.arp_nom, ': ',v.date_dep,' ',g.heure_dep) as 'Départ',
-concat(aa.arp_nom, ': ', v.date_dep,' ',g.heure_dep) as 'Arrivée',
-nbr_places_res as 'Places', prix as Prix, date_reservation as 'Date_réservation'
-FROM reservation r join client c on r.cln_id = c.cln_id
-join vol v on v.date_dep = r.date_dep and v.vlg_num = r.vlg_num
-join vol_g g on v.vlg_num = g.vlg_num
-join aeroport ad on ad.code=g.code_arp_dep
-join aeroport aa on aa.code=g.code_arp_arr";
-    //
-    return $oDl->getResultSet($sQuery);    
-    /*
-    $aRes = [
-      ['reservation' => '4d55d',
-      'nom' => 'Reno',
-      'prenom' => 'Jean',
-      'numero vol' => 'AF410',
-      'départ' => '2018-01-15',
-      'nb places' => '3'],
-      ['reservation' => '4d588',
-      'nom' => 'Moine',
-      'prenom' => 'Claude',
-      'numero vol' => 'AF660',
-      'départ' => '2018-01-15',
-      'nb places' => '1'],
-    ];
-    */
-    //
-    return $aRes;
-  }
-  
+function getReservation($aParams) {
+  $oDl = new DataLink();
+  $sQuery = "SELECT gnc_id, rsr_num, concat(prenom, ' ', nom) as client,
+    v.vlg_num as vol, concat(ad.arp_nom, ': ',v.date_dep,' ',g.heure_dep) as 'depart',
+    concat(aa.arp_nom, ': ', v.date_dep,' ',g.heure_dep) as 'arrivee',    
+    prix, nbr_places_res as nbPlaces
+    FROM reservation r join client c on r.cln_id = c.cln_id
+    join vol v on v.date_dep = r.date_dep and v.vlg_num = r.vlg_num
+    join vol_g g on v.vlg_num = g.vlg_num
+    join aeroport ad on ad.code=g.code_arp_dep
+    join aeroport aa on aa.code=g.code_arp_arr
+    where gnc_id = :gnc_id and rsr_num = :rsr_num";
+  //
+  $a = $oDl->getResultSet($sQuery, $aParams);
+  if( is_array($a) && isset($a[0]) && is_array($a[0]))
+    return $a[0];
+  //
+  return false;
+}
 
  ?>

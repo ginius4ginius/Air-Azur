@@ -16,11 +16,18 @@ $aParams = [':cln_id' => '3',
 $aRes = addReservation($aParams);
 var_dump($aRes);
 */
+/*
 //-------------------------------
 echo '------------ test deleteReservation<br>';
 $aParams = [':gnc_id' => '1', ':rsr_num' => '4']; 
 //
 $aRes = deleteReservation($aParams);
+var_dump($aRes);
+*/
+echo '------------ test getReservation<br>';
+$aParams = [':gnc_id' => '1', ':rsr_num' => '1']; 
+//
+$aRes = getReservation($aParams);
 var_dump($aRes);
 //-------------------------------
 echo '------------ test getReservations<br>';
