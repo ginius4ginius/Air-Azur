@@ -1,12 +1,17 @@
+<!DOCTYPE html>
 <html>
   <?php include_once('head.php')?>
   <body>
     <div id="container">
       <?php include_once('header.php')?>
       <div>
-        <h1>Réservations</h1>
+        <br />
+        <div id="listeResa">
+        <h1>Liste des réservations</h1>
+      </div>
+      <br /><br />
         <div id="reservation_list">
-        </div>          
+        </div>
       </div>
     </div>
     <?php include_once('foot.php')?>
@@ -21,14 +26,14 @@
           </div>
           <div class="modal-body">
             <div> Client : <span id="client"></span> </div>
-            <br>  
-            <div> 
+            <br>
+            <div>
               Vol: <span id="vol"></span> <br>
               Départ : <span id="depart"></span> <br>
               Arrivée : <span id="arrivee"></span> <br>
             </div>
             <br>
-            <div> Nombre de places : 
+            <div> Nombre de places :
               <input type="number" id="nbPlaces" size="3" onchange="updatePrix(this.value)"/>
             </div>
             <br>
@@ -49,7 +54,7 @@
 
   </body>
   <script>
-    
+
     function deleteRes(gnc_id, rsr_num) {
       console.log( "delete %s, %s", gnc_id, rsr_num );
       if(confirm("Voulez-vous vraiment supprimer cette réservation ?")) {
@@ -63,11 +68,11 @@
             console.log( "ajax call success");
             $("#reservation_list").html(data);
           },
-          error : function(data) { 
+          error : function(data) {
             console.log( "ajax call error" );
             $("#reservation_list").html(" Ajax Error");
           }
-        });        
+        });
       }
     }
     //
@@ -78,20 +83,20 @@
       console.log( "update %s, %s", $("#gnc_id").val(), $("#rsr_num").val() );
       $.ajax({ url : '../controller/reservation.php?action=update',
         //type : "POST",
-        data: { gnc_id : $("#gnc_id").val(), 
+        data: { gnc_id : $("#gnc_id").val(),
           rsr_num : $("#rsr_num").val(), nbr_places_res : $("#nbPlaces").val()  },
         dataType : "html",
         success : function(data) {
           console.log( "ajax call success");
           $("#reservation_list").html(data);
         },
-        error : function(data) { 
+        error : function(data) {
           console.log( "ajax call error" );
           $("#reservation_list").html(" Ajax Error");
         }
       });
       //
-      $('#myModal').modal('hide');        
+      $('#myModal').modal('hide');
     }
 
     function editRes(gnc_id, rsr_num) {
@@ -114,12 +119,12 @@
           //
           $('#myModal').modal();
         },
-        error : function(data) { 
-          console.log( "ajax call error" );          
+        error : function(data) {
+          console.log( "ajax call error" );
         }
       });
-      
-    }    
+
+    }
 
     function getPdf(sId) {
       console.log( "get pdf %s", sId );
@@ -138,7 +143,7 @@
           console.log( "ajax call success");
           $("#reservation_list").html(data);
         },
-        error : function(data) { 
+        error : function(data) {
           console.log( "ajax call error" );
           $("#reservation_list").html(" Ajax Error");
         }
@@ -146,7 +151,5 @@
       //
     });
 
-  </script>  
+  </script>
 </html>
-
-

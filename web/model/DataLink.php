@@ -2,8 +2,8 @@
 class DataLink {
   //--------------------------------------------------------------- members
   public $aDbConnector = array('dsn' => 'mysql:host=localhost;dbname=air_azur;charset=UTF8',
-    'user' => 'root',
-    'password' => '');
+    'user' => 'ginius',
+    'password' => 'WPO22.ADERIEUV93');
   //
   public $oConnection = null;
   //

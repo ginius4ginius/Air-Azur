@@ -5,7 +5,11 @@
     <div id="container">
       <?php include_once('header.php')?>
       <div>
+        <br />
+        <div id="listeVols">
         <h1>Liste des vols</h1>
+      </div>
+      <br /><br />
         <!--
         <form action="../controller/catalog.php">
           <div>Afficher vols disponibles: </div>
@@ -33,21 +37,21 @@
             <h4 class="modal-title" id="myModalLabel">Réserver un vol</h4>
           </div>
           <div class="modal-body">
-            
-            <div> 
+
+            <div>
               Vol : <span id="vol"></span> <br>
               Départ : <span id="depart"></span> <br>
               Arrivée : <span id="arrivee"></span> <br>
             </div>
             <br>
-            <div> Client : 
+            <div> Client :
               <select id="cln_id">
               </select>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="button" class="btn btn-primary btn-sm" onclick="showClientForm()">Ajouter client</button> 
+              <button type="button" class="btn btn-primary btn-sm" onclick="showClientForm()">Ajouter client</button>
             </div>
             <br>
-            <div> Nombre de places : 
+            <div> Nombre de places :
               <input type="number" id="nbPlaces" size="3" onchange="updatePrix(this.value)"/>
             </div>
             <br>
@@ -75,31 +79,31 @@
             <h4 class="modal-title" id="myClientLabel">Ajouter un client</h4>
           </div>
           <div class="modal-body">
-            
+
             <div>
-              Nom : <br> 
+              Nom : <br>
               <input id="cltNom" />
             </div><br>
 
             <div>
-              Prénom : <br> 
+              Prénom : <br>
               <input id="cltPrenom" />
             </div><br>
 
             <div>
-              Adresse - Rue : <br> 
+              Adresse - Rue : <br>
               <input id="cltRue" />
             </div><br>
 
             <div>
-              Adresse - Code postal : <br> 
+              Adresse - Code postal : <br>
               <input id="cltCode" />
             </div><br>
 
             <div>
-              Adresse - Ville : <br> 
+              Adresse - Ville : <br>
               <input id="cltVille" />
-            </div><br>            
+            </div><br>
 
           </div>
           <div class="modal-footer">
@@ -125,14 +129,22 @@
       //
       $('#myClient').modal('show');
     }
-
+    /////////////////////////////////////////////////////////////////////////////////////////////////
     function addClient() {
       //
-      alert("To do !!! ")
+    $("#bouton").on("click",
+    function(){
+            $.post("catalog.php",{"nom" : $("#cltNom").val(),
+                                      "prenom" : $("#cltPrenom").val(),
+                                      "adresse" : $("#cltRue").val(),
+                                      "code" : $("#cltCode").val(),
+                                      "ville" : $("#cltVille").val()});
+});
+
       //
       $('#myClient').modal('hide');
     }
-
+/////////////////////////////////////////////////////////////////////////////////////////////////
     function updatePrix(iPlaces) {
       $("#prix_calc").html($("#prix").val() * iPlaces);
     }
@@ -140,22 +152,22 @@
       console.log( "add %s, %s", $("#vlg_num").val(), $("#date_dep").val() );
       $.ajax({ url : '../controller/reservation.php?action=add',
         //type : "POST",
-        data: { cln_id : $("#cln_id").val(), 
+        data: { cln_id : $("#cln_id").val(),
                 vlg_num : $("#vlg_num").val(),
-                date_dep : $("#date_dep").val(), 
+                date_dep : $("#date_dep").val(),
                 nbr_places_res : $("#nbPlaces").val() },
         dataType : "html",
         success : function(data) {
           console.log( "ajax call success");
           alert("Le vol a bien été réservé ");
         },
-        error : function(data) { 
+        error : function(data) {
           console.log( "ajax call error: %O", data );
           alert("Le vol ne peut pas être réservé");
         }
       });
       //
-      $('#myModal').modal('hide');        
+      $('#myModal').modal('hide');
     }
 
     function getClientList() {
@@ -174,8 +186,8 @@
           }
           //
         },
-        error : function(data) { 
-          console.log( "Error clients: %O", data );          
+        error : function(data) {
+          console.log( "Error clients: %O", data );
         }
       });
     }
@@ -185,7 +197,7 @@
       //
       $("#vlg_num").val(vlg_num);
       $("#date_dep").val(date_dep);
-      $("#nbPlaces").val(1);      
+      $("#nbPlaces").val(1);
       //
       getClientList();
       //
@@ -205,11 +217,11 @@
           //
           $('#myModal').modal();
         },
-        error : function(data) { 
+        error : function(data) {
           console.log( "getFlyRes error %O", data);
         }
       });
-      
+
     }
 
     $( document ).ready(function() {
