@@ -108,7 +108,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-            <button type="button" class="btn btn-primary" onclick="addClient()">Valider</button>
+            <button type="button" class="btn btn-primary" onclick="addNewClient()">Valider</button>
           </div>
         </div>
       </div>
@@ -130,17 +130,27 @@
       $('#myClient').modal('show');
     }
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    function addClient() {
-      //
-    $("#bouton").on("click",
-    function(){
-            $.post("catalog.php",{"nom" : $("#cltNom").val(),
-                                      "prenom" : $("#cltPrenom").val(),
-                                      "adresse" : $("#cltRue").val(),
-                                      "code" : $("#cltCode").val(),
-                                      "ville" : $("#cltVille").val()});
-});
-
+    function addNewClient() {
+      console.log( "add client %s %s", $("#cltPrenom").val(), $("#cltNom").val() );
+      $.ajax({ url : '../controller/reservation.php',
+        type : "POST",
+        data: { action : "addClient",
+                nom : $("#cltNom").val(),
+                prenom : $("#cltPrenom").val(),
+                adr_rue : $("#cltRue").val(),
+                adr_cp : $("#cltCode").val(),
+                adr_ville : $("#cltVille").val() },
+        //
+        dataType : "html",
+        success : function(data) {
+          console.log( "add client success");
+          getClientList();
+        },
+        error : function(data) {
+          console.log( "add client error: %O", data );
+          alert("Le vol ne peut pas être réservé");
+        }
+      });
       //
       $('#myClient').modal('hide');
     }
