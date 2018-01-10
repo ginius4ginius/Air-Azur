@@ -1,3 +1,5 @@
+<?php session_start();?>
+<!DOCTYPE html>
 <html>
   <?php include_once('head.php')?>
   <body>
@@ -5,10 +7,59 @@
       <?php include_once('header.php')?>
       <div>
         <div id="accueil">
+
+          <?php /* include_once("../model/model.php")?>
+        <?php $reponse = getAgences();
+
+          if(!is_array($reponse))
+          return $result;
+
+          foreach($reponse as $key => $value) {
+            if( !isset($_SESSION["nom"])){
+
+            ?>
+          <div id = "formulaireConnexion">
+                <br />
+                <form  method = "POST" action="../controller/traitementConnexion.php">
+                  <fieldset id = "connexion">
+                      <label>Login : </label>
+                        <input type="text" name="login" size="30"/>
+                      <label>   Mot de passe : </label>
+                        <input type="password" name="motDePasse" size="30"/>
+                  </fieldset>
+                  <p>
+                    <input type="submit" value="Connexion">
+                    <input type="reset" value="Effacer">
+                  </p>
+                </form>
+        <?php    echo "</div>";
+      }
+     else if( $value["code_agence"]!=$_SESSION["nom"]){
+        ?>
+      <div id = "formulaireConnexion">
+            <br />
+            <form  method = "POST" action="../controller/traitementConnexion.php">
+              <fieldset id = "connexion">
+                  <label>Login : </label>
+                    <input type="text" name="login" size="30"/>
+                  <label>   Mot de passe : </label>
+                    <input type="password" name="motDePasse" size="30"/>
+              </fieldset>
+              <p>
+                <input type="submit" value="Connexion">
+                <input type="reset" value="Effacer">
+              </p>
+            </form>
+    <?php    echo "</div>";}
+  }*/?>
+
           <br />
           <div id="titreAccueil">
             Bienvenue sur l'intranet d'AIR AZUR
           </div>
+
+          <br />
+
           <div id="textAccueil">
             <br /><br /><br />
             À propos d’Air Azur

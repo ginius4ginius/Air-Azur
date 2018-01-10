@@ -40,9 +40,9 @@ function getVols() {
      heure_arr as 'Heure_arrivée',
       nbr_places as Places,
        prix,
-        (select arp_nom from aeroport where code = 1 ) as 'Aéroport_départ', 
-          arp_nom as 'Aéroport_arrivée' FROM `vol` 
-          join vol_g on vol.vlg_num = vol_g.vlg_num 
+        (select arp_nom from aeroport where code = 1 ) as 'Aéroport_départ',
+          arp_nom as 'Aéroport_arrivée' FROM `vol`
+          join vol_g on vol.vlg_num = vol_g.vlg_num
           join aeroport on vol_g.code_arp_arr = aeroport.code
           order by date_dep";
   //
@@ -141,6 +141,15 @@ function getReservation($aParams) {
     return $a[0];
   //
   return false;
+}
+
+function getAgences() {
+  $oDl = new DataLink();
+  $sQuery = "select * from agence";
+  //
+  $rep = $oDl->getResultSet($sQuery);
+
+  return $rep;
 }
 
  ?>

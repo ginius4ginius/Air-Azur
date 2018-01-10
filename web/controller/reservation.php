@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php
 include_once("../model/model.php");
 include_once("util.php");
