@@ -9,7 +9,7 @@
       <div>
         <br />
         <div id="listeVols">
-        <h1>Liste des vols</h1>
+        Liste des vols
       </div>
       <br /><br />
         <!--

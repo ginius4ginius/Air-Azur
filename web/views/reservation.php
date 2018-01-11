@@ -8,7 +8,7 @@
       <div>
         <br />
         <div id="listeResa">
-        <h1>Liste des réservations</h1>
+        Liste des réservations
       </div>
       <br /><br />
         <div id="reservation_list">
