@@ -6,7 +6,8 @@
 
 
   <body>
-<form name="retour" action="../views/home.php" method="post">
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<form name="retour" action="../views/login.php" method="post">
 <?php
 
 $mess_err = "Vous avez oublié de remplir le champs : ";
@@ -29,10 +30,10 @@ $message_err_mdp=$mess_err."'Mot de passe'";
 if (strlen($mess_err_saisie) > strlen($mess_err)){
 
 
-  if (strlen($message_err_login) > strlen($mess_err)){?><div class="alert alert-danger">
-<b>Erreur!</b> <?php echo $message_err_login."<br />" ?></div> <?php ;}
-  if (strlen($message_err_mdp) > strlen($mess_err)){?><div class="alert alert-danger">
-<b>Erreur!</b> <?php echo $message_err_mdp."<br />" ?></div> <?php ;}
+  if (strlen($message_err_login) > strlen($mess_err)){?><center><div class="alert alert-danger">
+<b>Erreur!</b> <?php echo $message_err_login."<br />" ?></div></center> <?php ;}
+  if (strlen($message_err_mdp) > strlen($mess_err)){?><center><div class="alert alert-danger">
+<b>Erreur!</b> <?php echo $message_err_mdp."<br />" ?></div></center> <?php ;}
 }
 
 else {
@@ -41,29 +42,28 @@ $salutation="";
 $nom=$_POST["login"];
 $mdp=$_POST["motDePasse"];
 $_SESSION["nom"]= $nom;
-// On récupère tout le contenu de la table Employe
 
 
 $reponse = getAgences();
-if(!is_array($reponse))
-  return $result;
 
-$trouve = false;
-// On affiche chaque entrée une à une
-/*while ( ($ligne = $reponse->fetch()) && $trouve == false)
-{*/
+$ref = false;
+
   foreach($reponse as $key => $value) {
   if( $value["code_agence"]==$nom && $value["mot_de_passe"]==$mdp )
-  $trouve = true;
+  $ref = true;
 }
-if($trouve==true){
-  echo '<div class="alert alert-success">
-  <b>Félicitation! vous etes connecté</b>
-  </div>' ;
-}else{
-  echo '<div class="alert alert-danger">
+if($ref==true){
+    header("Location: ../views/home.php");
+  /*  echo '<div class="alert alert-success">
+    <b>Félicitation! vous etes connecté</b>
+  </div>'*/ ;
+}
+else{
+  header("Location: ../views/login.php");
+/*  echo '<div class="alert alert-danger">
 <b>erreur de connection</b>
-</div>';
+</div>';*/
+
 }
 
 }
@@ -71,7 +71,7 @@ if($trouve==true){
 
 ?>
 
-<input type="submit" value="Accueil">
+<center><input type="submit" value="Accueil"></center>
 </form>
 
   <?php include_once('../views/foot.php')?>

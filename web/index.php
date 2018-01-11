@@ -1,6 +1,6 @@
 <?php
 //
-$sLocation = "views/home.php"; //default location route
+$sLocation = "views/login.php"; //default location route
 //
 //--------------------------------------- route
 if(isset($_REQUEST['action'])) {
@@ -13,8 +13,13 @@ if(isset($_REQUEST['action'])) {
       $sLocation = "views/catalog.php";
       break;
     //
+    case 'home':
+      $sLocation = "views/home.php";
+      break;
   }
 }
+
+
 //----------- go to location
 header("Location: $sLocation");
 //exit();

@@ -9,8 +9,9 @@
               <li id="menu_res" > <a href="../index.php?action=reservation"><span class="glyphicon glyphicon-edit"></span>   Réservations</a> </li>
           </ul>
           <form method="POST" action="../controller/logout.php" >
-
-          <input type="submit" value="deconnexion">
+            <div class="deco">
+              <input class="deco" type="submit" value="deconnexion" style="height:49px">
+            </div>
           </form>
         </nav>
 

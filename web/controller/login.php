@@ -1,23 +1,20 @@
 <?php session_start();?>
 <?php  include_once("../model/model.php")?>
-<?php $reponse = getAgences();
+<?php
 
-          if(!is_array($reponse)){
-          return $result;}
-
-          $ref = false;
+    $reponse = getAgences();
+    $ref = false;
 
           foreach($reponse as $key => $value) {
-          if( $value == $_SESSION["nom"] )
-          $ref = true;
+          if( $value["code_agence"]== $_SESSION["nom"] ){$ref = true;}
+
           }
-          var_dump($reponse);
-            var_dump($_SESSION);
-            var_dump($ref);
 
-          if(!isset($_SESSION["nom"]) /*|| $ref == false*/){
 
-            ?>
-
-      }
+      /*    if($ref == true){
+            header("Location: ../views/home.php");
+          }
+          else {
+            header("Location: ../views/login.php");
+          }*/
   ?>

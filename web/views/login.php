@@ -9,15 +9,17 @@
 <div id = "formulaireConnexion">
       <br />
       <form  method = "POST" action="../controller/traitementConnexion.php">
-        <fieldset id = "connexion">
-            <label>Login : </label>
+      <center>  <fieldset id = "connexion">
+          <legend> Connexion </legend>
+            <label class="inline">Login : </label>
               <input type="text" name="login" size="30"/>
-            <label>   Mot de passe : </label>
+            <label class="inline">   Mot de passe : </label>
               <input type="password" name="motDePasse" size="30"/>
-        </fieldset>
+        </fieldset></center>
         <p>
-          <input type="submit" value="Connexion">
-          <input type="reset" value="Effacer">
+        <center>  <input type="submit" value="Connexion">
+          <input type="reset" value="Effacer"></center>
+
         </p>
       </form>
 </div>
