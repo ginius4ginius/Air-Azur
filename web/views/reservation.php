@@ -8,11 +8,16 @@
       <div>
         <br />
         <div id="listeResa">
-        Liste des réservations
-      </div>
-      <br /><br />
-        <div id="reservation_list">
+          Liste des réservations
         </div>
+        <br /><br />
+        <form id="res_form" action="../controller/reservation.php" method="post">
+          <input type="hidden" name="action" value="getPdf">
+          <input type="hidden" name="gnc_id" id="idgnc">
+          <input type="hidden" name="rsr_num" value="idrsr">
+          <div id="reservation_list">
+          </div>
+        </form>
       </div>
     </div>
     <?php include_once('foot.php')?>
@@ -107,7 +112,7 @@
         data : { gnc_id : gnc_id, rsr_num : rsr_num },
         dataType : "json",
         success : function(data) {
-          console.log( "ajax call success");
+          console.log("ajax success getFly %O", data);
           $("#client").html(data.client);
           $("#vol").html(data.vol);
           $("#depart").html(data.depart);
@@ -121,14 +126,29 @@
           $('#myModal').modal();
         },
         error : function(data) {
-          console.log( "ajax call error" );
+          console.log( "ajax error getFly %O", data );
         }
       });
 
     }
 
-    function getPdf(sId) {
-      console.log( "get pdf %s", sId );
+    function getPdf(gnc_id, rsr_num) {
+      console.log( "get pdf %s %s", gnc_id, rsr_num);
+      $( "#idgnc" ).val(gnc_id);
+      $( "#idrsr" ).val(rsr_num);
+      $( "#res_form" ).submit();
+      /*
+      $.ajax({ url : '../controller/reservation.php?action=getPdf',
+        data : { gnc_id : gnc_id, rsr_num : rsr_num },
+        dataType : "json",
+        success : function(data) {
+          console.log( "ajax getPdf success");
+        },
+        error : function(data) {
+          console.log( "ajax getPdf error" );
+        }
+      });
+      */      
     }
 
     $( document ).ready(function() {

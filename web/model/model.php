@@ -126,9 +126,10 @@ function getReservations($aFilters=array()) {
 function getReservation($aParams) {
   $oDl = new DataLink();
   $sQuery = "SELECT gnc_id, rsr_num, concat(prenom, ' ', nom) as client,
+    adr_rue, adr_cp, adr_ville,
     v.vlg_num as vol, concat(ad.arp_nom, ': ',v.date_dep,' ',g.heure_dep) as 'depart',
     concat(aa.arp_nom, ': ', v.date_dep,' ',g.heure_dep) as 'arrivee',
-    prix, nbr_places_res as nbPlaces
+    prix, prix * nbr_places_res as prix_calc, nbr_places_res as nbPlaces
     FROM reservation r join client c on r.cln_id = c.cln_id
     join vol v on v.date_dep = r.date_dep and v.vlg_num = r.vlg_num
     join vol_g g on v.vlg_num = g.vlg_num
