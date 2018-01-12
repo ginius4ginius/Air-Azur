@@ -14,7 +14,7 @@
         <form id="res_form" action="../controller/reservation.php" method="post">
           <input type="hidden" name="action" value="getPdf">
           <input type="hidden" name="gnc_id" id="idgnc">
-          <input type="hidden" name="rsr_num" value="idrsr">
+          <input type="hidden" name="rsr_num" id="idrsr">
           <div id="reservation_list">
           </div>
         </form>
@@ -148,7 +148,7 @@
           console.log( "ajax getPdf error" );
         }
       });
-      */      
+      */
     }
 
     $( document ).ready(function() {

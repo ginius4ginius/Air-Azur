@@ -52,13 +52,14 @@ if(isset($_REQUEST['action'])) {
       break;
     //
     case 'getPdf':
-      $aRes =getReservation([':gnc_id' => $_REQUEST['gnc_id'],
+      //var_dump($_REQUEST);
+      $aRes = getReservation([':gnc_id' => $_REQUEST['gnc_id'],
         ':rsr_num' => $_REQUEST['rsr_num']]);
-      //
+      //      
       mkPdf($aRes);
       //
       exit();
-      break;      
+      break;
     //
     case 'getFlyRes':
       $aRes =getVolRes([':vlg_num' => $_REQUEST['vlg_num'],
