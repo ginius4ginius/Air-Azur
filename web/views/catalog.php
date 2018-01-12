@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
 <html>
 
   <?php include_once('head.php')?>
@@ -7,7 +9,7 @@
       <div>
         <br />
         <div id="listeVols">
-        <h1>Liste des vols</h1>
+        Liste des vols
       </div>
       <br /><br />
         <!--

@@ -1,5 +1,7 @@
+<?php session_start();?>
 <?php
 include_once("../model/model.php");
+include_once("../model/Pdf.php");
 include_once("util.php");
 
 function getReservationTable($aRequest=array()) {
@@ -48,6 +50,15 @@ if(isset($_REQUEST['action'])) {
       echo json_encode($aRes);
       exit();
       break;
+    //
+    case 'getPdf':
+      $aRes =getReservation([':gnc_id' => $_REQUEST['gnc_id'],
+        ':rsr_num' => $_REQUEST['rsr_num']]);
+      //
+      mkPdf($aRes);
+      //
+      exit();
+      break;      
     //
     case 'getFlyRes':
       $aRes =getVolRes([':vlg_num' => $_REQUEST['vlg_num'],
