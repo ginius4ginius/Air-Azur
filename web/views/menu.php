@@ -10,7 +10,7 @@
           </ul>
           <form method="POST" action="../controller/logout.php" >
             <div class="deco">
-              <input class="deco" type="submit" value="deconnexion" style="height:49px">
+              <button type="submit" class="btn btn-default navbar-btn">Déconnexion</button>
             </div>
           </form>
         </nav>
