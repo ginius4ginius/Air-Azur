@@ -40,7 +40,7 @@
             </div>
             <br>
             <div> Nombre de places :
-              <input type="number" id="nbPlaces" size="3" onchange="updatePrix(this.value)"/>
+              <input type="number" min="1" id="nbPlaces" size="3" onchange="updatePrix(this.value)"/>
             </div>
             <br>
             <div> Prix HT : <span id="prix_calc"></span> &euro;</div>
@@ -71,11 +71,11 @@
           data: { gnc_id : gnc_id, rsr_num : rsr_num },
           dataType : "html",
           success : function(data) {
-            console.log( "ajax call success");
+            console.log( "ajax delete success");
             $("#reservation_list").html(data);
           },
           error : function(data) {
-            console.log( "ajax call error" );
+            console.log( "ajax delete error" );
             $("#reservation_list").html(" Ajax Error");
           }
         });
@@ -93,11 +93,11 @@
           rsr_num : $("#rsr_num").val(), nbr_places_res : $("#nbPlaces").val()  },
         dataType : "html",
         success : function(data) {
-          console.log( "ajax call success");
+          console.log( "ajax update success");
           $("#reservation_list").html(data);
         },
         error : function(data) {
-          console.log( "ajax call error" );
+          console.log( "ajax update error" );
           $("#reservation_list").html(" Ajax Error");
         }
       });
@@ -137,18 +137,6 @@
       $( "#idgnc" ).val(gnc_id);
       $( "#idrsr" ).val(rsr_num);
       $( "#res_form" ).submit();
-      /*
-      $.ajax({ url : '../controller/reservation.php?action=getPdf',
-        data : { gnc_id : gnc_id, rsr_num : rsr_num },
-        dataType : "json",
-        success : function(data) {
-          console.log( "ajax getPdf success");
-        },
-        error : function(data) {
-          console.log( "ajax getPdf error" );
-        }
-      });
-      */
     }
 
     $( document ).ready(function() {
@@ -161,11 +149,11 @@
         //type : "POST",
         dataType : "html",
         success : function(data) {
-          console.log( "ajax call success");
+          console.log( "ajax getList success");
           $("#reservation_list").html(data);
         },
         error : function(data) {
-          console.log( "ajax call error" );
+          console.log( "ajax getList error" );
           $("#reservation_list").html(" Ajax Error");
         }
       });
