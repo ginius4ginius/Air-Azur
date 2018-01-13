@@ -150,7 +150,7 @@
         },
         error : function(data) {
           console.log( "add client error: %O", data );
-          alert("Le vol ne peut pas être réservé");
+          alert("Le client ne peut pas être ajouté");
         }
       });
       //
@@ -172,6 +172,7 @@
         success : function(data) {
           console.log( "ajax call success");
           alert("Le vol a bien été réservé ");
+          location.reload();
         },
         error : function(data) {
           console.log( "ajax call error: %O", data );
