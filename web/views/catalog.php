@@ -54,7 +54,7 @@
             </div>
             <br>
             <div> Nombre de places :
-              <input type="number" id="nbPlaces" size="3" onchange="updatePrix(this.value)"/>
+              <input type="number" min="1" id="nbPlaces" size="3" onchange="updatePrix(this.value)"/>
             </div>
             <br>
             <div> Prix HT : <span id="prix_calc"></span> &euro;</div>
@@ -84,27 +84,27 @@
 
             <div>
               Nom : <br>
-              <input id="cltNom" />
+              <input id="cltNom" required />
             </div><br>
 
             <div>
               Prénom : <br>
-              <input id="cltPrenom" />
+              <input id="cltPrenom" required />
             </div><br>
 
             <div>
               Adresse - Rue : <br>
-              <input id="cltRue" />
+              <input id="cltRue" size="60" required />
             </div><br>
 
             <div>
               Adresse - Code postal : <br>
-              <input id="cltCode" />
+              <input id="cltCode" size="20" required />
             </div><br>
 
             <div>
               Adresse - Ville : <br>
-              <input id="cltVille" />
+              <input id="cltVille" size="50" required />
             </div><br>
 
           </div>
@@ -150,7 +150,7 @@
         },
         error : function(data) {
           console.log( "add client error: %O", data );
-          alert("Le vol ne peut pas être réservé");
+          alert("Le client ne peut pas être ajouté");
         }
       });
       //
@@ -172,6 +172,7 @@
         success : function(data) {
           console.log( "ajax call success");
           alert("Le vol a bien été réservé ");
+          location.reload();
         },
         error : function(data) {
           console.log( "ajax call error: %O", data );
